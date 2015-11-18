@@ -4,7 +4,11 @@ import * as bodyParser from 'body-parser';
 import {join} from 'path';
 import index from './routes/index';
 import users from './routes/users';
+import environment from './routes/environment';
+import location from './routes/location';
+import statusPlugin from './routes/statusPlugin';
 import cookieParser = require('cookie-parser'); // this module doesn't use the ES6 default export yet
+
 
 const app: express.Express = express();
 
@@ -22,6 +26,9 @@ app.use(express.static(join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use ('/api/getEnvironments',environment);
+app.use ('/api/getLocations',location);
+app.use('/api/GetStatusForAllPlugins',statusPlugin)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

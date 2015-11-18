@@ -1,11 +1,11 @@
-/// <reference path='../typings/tsd.d.ts' />
+/// <reference path='../src/tsd.d.ts' />
 
 import express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send('respond with a resource test rajiv');
 });
 
 export = router;
