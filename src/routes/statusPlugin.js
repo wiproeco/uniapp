@@ -32,6 +32,7 @@ statusPlugin.get('/:id', function (req, res, next) {
                 res.end("");
                 return;
             }
+            var a;
             res.header('Content-Type: application/json');
             var response = [];
             for (var i = 0; i < recordset.length; i++) {
