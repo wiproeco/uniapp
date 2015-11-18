@@ -12,9 +12,9 @@ var config = {
         database: 'devicemoinotringdb-dev',
     }
 };
-var statusPlugin = express_1.Router();
+var outPutJson = express_1.Router();
 /* GET Location Data from sql azure. */
-statusPlugin.get('/', function (req, res, next) {
+outPutJson.get('/', function (req, res, next) {
     var service = req.query.service;
     var environment = req.query.environment;
     var status = req.query.status;
@@ -48,5 +48,5 @@ statusPlugin.get('/', function (req, res, next) {
     });
 });
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = statusPlugin;
+exports.default = outPutJson;
 //# sourceMappingURL=outPutJson.js.map

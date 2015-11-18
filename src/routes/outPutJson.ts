@@ -16,10 +16,10 @@ var config = {
     }
 }
 
-const statusPlugin = Router();
+const outPutJson = Router();
 
 /* GET Location Data from sql azure. */
-statusPlugin.get('/', function(req, res, next) { 
+outPutJson.get('/', function(req, res, next) { 
     var service: string = req.query.service;
     var environment:number = req.query.environment;
     var status:number = req.query.status;
@@ -63,4 +63,4 @@ statusPlugin.get('/', function(req, res, next) {
     })
 });
 
-export default statusPlugin;
+export default outPutJson;

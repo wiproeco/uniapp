@@ -7,7 +7,7 @@ import users from './routes/users';
 import environment from './routes/environment';
 import location from './routes/location';
 import statusPlugin from './routes/statusPlugin';
-import outPutJson from './routes/statusPlugin';
+import outPutJson from './routes/outPutJson';
 
 import cookieParser = require('cookie-parser'); // this module doesn't use the ES6 default export yet
 
