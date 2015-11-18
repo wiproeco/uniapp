@@ -7,6 +7,7 @@ var users_1 = require('./routes/users');
 var environment_1 = require('./routes/environment');
 var location_1 = require('./routes/location');
 var statusPlugin_1 = require('./routes/statusPlugin');
+var statusPlugin_2 = require('./routes/statusPlugin');
 var cookieParser = require('cookie-parser'); // this module doesn't use the ES6 default export yet
 var app = express();
 // view engine setup
@@ -24,6 +25,7 @@ app.use('/users', users_1.default);
 app.use('/api/getEnvironments', environment_1.default);
 app.use('/api/getLocations', location_1.default);
 app.use('/api/GetStatusForAllPlugins', statusPlugin_1.default);
+app.use('/api/getOutputJSon', statusPlugin_2.default);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');

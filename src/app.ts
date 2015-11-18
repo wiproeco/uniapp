@@ -7,10 +7,13 @@ import users from './routes/users';
 import environment from './routes/environment';
 import location from './routes/location';
 import statusPlugin from './routes/statusPlugin';
+import outPutJson from './routes/statusPlugin';
+
 import cookieParser = require('cookie-parser'); // this module doesn't use the ES6 default export yet
 
 
 const app: express.Express = express();
+
 
 // view engine setup
 app.set('views', join(__dirname, 'views'));
@@ -29,6 +32,7 @@ app.use('/users', users);
 app.use ('/api/getEnvironments',environment);
 app.use ('/api/getLocations',location);
 app.use('/api/GetStatusForAllPlugins',statusPlugin)
+app.use('/api/getOutputJSon',outPutJson)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
