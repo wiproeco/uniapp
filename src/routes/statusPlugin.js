@@ -11,8 +11,16 @@ var config = {
 };
 var statusPlugin = express_1.Router();
 /* GET Location Data from sql azure. */
-statusPlugin.get('/:id', function (req, res, next) {
+statusPlugin.get('/:id/:serviceType?', function (req, res, next) {
     var envType = req.params.id;
+    var serviceType = req.params.serviveType;
+    var query = "SELECT M.PluginName  as [ServiceName], M.Status as [Status], M.Timestamp as[Time], M.EnvironmentType as [EnvironmentType], ST.[Name] as[ServiceType], M.ResultJSON as [ResultJSON], M.DataCenterId as [DataCenterId],DC.Location as [Location]" +
+        "FROM [dbo].[PluginCurrentStatus] M INNER JOIN [dbo].[Services] S ON M.[ServiceId]=S.ID INNER JOIN [dbo].[ServiceType]  ST ON ST.[Id]=S.[ServiceTypeId] LEFT JOIN [dbo].DataCenters DC ON DC.DataCenterId = M.DataCenterId " +
+        "WHERE M.EnvironmentType = " + envType;
+    if (serviceType !== undefined) {
+        query = query + " and ST.Name=" + serviceType;
+    }
+    query = query + " Order By S.DisplayOrder";
     var connection = new sql.Connection(config, function (err) {
         if (err) {
             res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -22,9 +30,10 @@ statusPlugin.get('/:id', function (req, res, next) {
         }
         var request = connection.request(); // or: var request = connection.request(); 
         //query
-        var query = "SELECT M.PluginName  as [ServiceName], M.Status as [Status], M.Timestamp as[Time], M.EnvironmentType as [EnvironmentType], ST.[Name] as[ServiceType], M.ResultJSON as [ResultJSON], M.DataCenterId as [DataCenterId],DC.Location as [Location]" +
-            "FROM [dbo].[PluginCurrentStatus] M INNER JOIN [dbo].[Services] S ON M.[ServiceId]=S.ID INNER JOIN [dbo].[ServiceType]  ST ON ST.[Id]=S.[ServiceTypeId] LEFT JOIN [dbo].DataCenters DC ON DC.DataCenterId = M.DataCenterId " +
-            "WHERE M.EnvironmentType = " + envType + " Order By S.DisplayOrder";
+        // var query = "SELECT M.PluginName  as [ServiceName], M.Status as [Status], M.Timestamp as[Time], M.EnvironmentType as [EnvironmentType], ST.[Name] as[ServiceType], M.ResultJSON as [ResultJSON], M.DataCenterId as [DataCenterId],DC.Location as [Location]" +
+        //                                               "FROM [dbo].[PluginCurrentStatus] M INNER JOIN [dbo].[Services] S ON M.[ServiceId]=S.ID INNER JOIN [dbo].[ServiceType]  ST ON ST.[Id]=S.[ServiceTypeId] LEFT JOIN [dbo].DataCenters DC ON DC.DataCenterId = M.DataCenterId " +
+        //                                               "WHERE M.EnvironmentType = "+ envType +" Order By S.DisplayOrder";
+        //   
         request.query(query, function (err, recordset) {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'application/json' });
