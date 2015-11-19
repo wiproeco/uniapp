@@ -13,6 +13,7 @@ var location = express_1.Router();
 /* GET Location Data from sql azure. */
 location.get('/', function (req, res, next) {
     var connection = new sql.Connection(config, function (err) {
+        var a;
         if (err) {
             res.writeHead(500, { 'Content-Type': 'application/json' });
             res.write("Got error :-( " + err);

@@ -19,7 +19,7 @@ const location = Router();
 location.get('/', function(req, res, next) {   
     
     var connection = new sql.Connection(config,function (err){
-        
+        var a;
         if(err){
             res.writeHead(500, { 'Content-Type': 'application/json' });
             res.write("Got error :-( " + err);
