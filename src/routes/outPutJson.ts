@@ -6,12 +6,12 @@ import * as sql from 'mssql';
 
 var config = {
     user: 'demo',
-    password: 'password@123',
-    server: 'sol9xwt1o7.database.windows.net', // You can use 'localhost\\instance' to connect to named instance 
-    database: 'devicemoinotringdb-dev',
+    password: 'pp',
+    server: 'jjj', // You can use 'localhost\\instance' to connect to named instance 
+    database: 'jjj',
     options: {
         encrypt: true ,// Use this if you're on Windows Azure 
-        database: 'devicemoinotringdb-dev',
+        database: 'jjj',
         
     }
 }

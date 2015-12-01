@@ -5,7 +5,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Rajiv' + 1+1});
+  res.render('index', { title: 'Demo Node Capability' + 1+1});
 });
 
 export = router;

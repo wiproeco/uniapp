@@ -27,11 +27,11 @@ app.use('/api/getLocations', location_1.default);
 app.use('/api/GetStatusForAllPlugins', statusPlugin_1.default);
 app.use('/api/getOutputJSon', outPutJson_1.default);
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use((function (req, res, next) {
     var err = new Error('Not Found');
     err['status'] = 404;
     next(err);
-});
+}));
 // error handlers
 // development error handler
 // will print stacktrace

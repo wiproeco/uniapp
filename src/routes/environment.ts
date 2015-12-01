@@ -3,12 +3,12 @@ var sql = require('mssql');
 
 var config = {
     user: 'demo',
-    password: 'password@123',
-    server: 'sol9xwt1o7.database.windows.net', // You can use 'localhost\\instance' to connect to named instance 
+    password: 'ppppp',
+    server: 'hhhhh', // You can use 'localhost\\instance' to connect to named instance 
      
     options: {
         encrypt: true ,// Use this if you're on Windows Azure 
-        database: 'devicemoinotringdb-dev',
+        database: 'ggg',
         
     }
 }
@@ -16,7 +16,9 @@ var config = {
 const environment = Router();
 
 /* GET Location Data from sql azure. */
-environment.get('/', function(req, res, next) {   
+environment.get('/', function(req, res, next) {  
+    
+    
     
     var connection = new sql.Connection(config,function (err){
         

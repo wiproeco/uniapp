@@ -27,6 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(join(__dirname, 'public')));
 
+
+
 app.use('/', index);
 app.use('/users', users);
 app.use ('/api/getEnvironments',environment);
@@ -35,11 +37,11 @@ app.use('/api/GetStatusForAllPlugins',statusPlugin)
 app.use('/api/getOutputJSon',outPutJson)
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
+app.use(((req, res, next) => {
   var err = new Error('Not Found');
   err['status'] = 404;
   next(err);
-});
+}));
 
 // error handlers
 
