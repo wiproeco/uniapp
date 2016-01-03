@@ -1,14 +1,15 @@
 var express_1 = require('express');
 var sql = require('mssql');
-var config = {
-    user: 'demo',
-    password: 'password@123',
-    server: 'sol9xwt1o7.database.windows.net',
-    options: {
-        encrypt: true,
-        database: 'devicemoinotringdb-dev',
-    }
-};
+var config = { 
+     user: 'nodejsadmin', 
+     password: 'Narmada!12', 
+     server: 'nodejsserver.database.windows.net', 
+     options: { 
+         encrypt: true, 
+         database: 'nodejsdata', 
+     } 
+ }; 
+
 var statusPlugin = express_1.Router();
 /* GET Location Data from sql azure. */
 statusPlugin.get('/:id/:serviceType?', function (req, res, next) {
