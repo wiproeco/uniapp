@@ -2,13 +2,13 @@ import {Router} from 'express';
 var sql = require('mssql');
 
 var config = {
-    user: 'demo',
-    password: 'ppp',
-    server: 'bbb', // You can use 'localhost\\instance' to connect to named instance 
+    user: 'nodejsadmin',
+    password: 'Narmada!12',
+    server: 'nodejsserver.database.windows.net', // You can use 'localhost\\instance' to connect to named instance 
      
     options: {
         encrypt: true ,// Use this if you're on Windows Azure 
-        database: 'jjj',
+        database: 'nodejsdata',
         
     }
 }
