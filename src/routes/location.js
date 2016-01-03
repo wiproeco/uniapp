@@ -1,12 +1,12 @@
 var express_1 = require('express');
 var sql = require('mssql');
 var config = {
-    user: 'demo',
-    password: 'password@123',
-    server: 'sol9xwt1o7.database.windows.net',
+    user: 'nodejsadmin',
+    password: 'Narmada!12',
+    server: 'nodejsserver.database.windows.net',
     options: {
         encrypt: true,
-        database: 'devicemoinotringdb-dev',
+        database: 'nodejsdata',
     }
 };
 var location = express_1.Router();
