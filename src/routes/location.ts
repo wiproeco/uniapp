@@ -27,7 +27,7 @@ location.get('/', function(req, res, next) {
             return;
                }
         
-        var request = connection.request(); // or: var request = connection.request(); 
+        var request = connection.request(); // or: var request = connection.request() this is new; 
             request.query('Select Location from Datacenters Order by DataCenterId', function(err, recordset) {
            
             if(err){
