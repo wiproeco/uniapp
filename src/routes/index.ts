@@ -4,7 +4,7 @@ const index = Router();
 
 /* GET home page. */
 index.get('/', function(req, res, next) {
-  res.render('index', { title: 'Visual Studio Code!' });
+  res.render('index', { title: 'Visual Studio Rajiv Code!' });
 });
 
 /* GET Quick Start. */

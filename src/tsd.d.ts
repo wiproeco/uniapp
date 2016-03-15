@@ -7,3 +7,4 @@
 /// <reference path="../typings/serve-favicon/serve-favicon.d.ts" />
 /// <reference path="../typings/mocha/mocha.d.ts" />
 /// <reference path="../typings/gulp/gulp.d.ts" />
+/// <reference path="../typings/mssql/mssql.d.ts" />

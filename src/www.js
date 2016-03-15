@@ -9,7 +9,7 @@ app_1.default.set('port', port);
 var server = http.createServer(app_1.default);
 server.listen(port);
 server.on('error', onError);
-server.on('listening', onListening);
+//server.on('listening', onListening);
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -57,6 +57,6 @@ function onListening() {
     var bind = typeof addr === 'string'
         ? 'pipe ' + addr
         : 'port ' + addr.port;
-    debug('Listening on ' + bind);
+    debug('Listening on  test ' + bind);
 }
 //# sourceMappingURL=www.js.map

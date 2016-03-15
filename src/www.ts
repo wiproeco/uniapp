@@ -2,6 +2,7 @@ import app from './app';
 import debugModule = require('debug');
 import http = require('http');
 
+
 const debug = debugModule('node-express-typescript:server');
 
 // Get port from environment and store in Express.
@@ -12,7 +13,7 @@ app.set('port', port);
 const server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
-server.on('listening', onListening);
+//server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -69,5 +70,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
 
-  debug('Listening on ' + bind);
+  debug('Listening on  test ' + bind);
 }
